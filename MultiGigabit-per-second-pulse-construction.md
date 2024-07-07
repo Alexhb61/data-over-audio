@@ -21,7 +21,7 @@ Maybe it should have a better name, but anyway by StandardWave(a,b,f,d) I am ref
 From 60 Hz to 100,059 Hz:
 From 60 Hz to 100,059 Hz half life per second:
 We will be sending 1 standard wave to send 1 bit over say 2 seconds.
-This will send around 10 Gigabits in 2 seconds which will heartily contradict 6.
+This will send around 10 Gigabits in 2 seconds which will heartily contradict assumption 7.
 We setup the 10 billion senders on one side of a hypothetical room and 10 billion recievers on the other side of the room.
 Each sender should exist because of assumption 1 and 2.
 The data should reach from one side of the room to the other by assumptions 3 and 4.
