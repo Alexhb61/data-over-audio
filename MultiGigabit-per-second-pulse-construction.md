@@ -7,7 +7,7 @@ I was able to isolate the following intuition which I think is strange:
 ### Waves should be analyzed in 2 dimensions: dampening and frequency.
 I have this intuition from the nature of the s-plane in analysis via the laplace transform.
 ## Definition of Standard Wave
-Maybe it should have a better name, but anyway by StandardWave(a,b,f,d) I am referring to a dampened cosine wave of amplitude a, half-life per second b, frequency f, and delay d.
+Maybe it should have a better name, but anyway by StandardWave(a,b,f,d) I am referring to a dampened cosine wave of amplitude a, half-life per second b, frequency f, and delay d which has no signal before its start time.
 # Assumptions for this contradiction source:
 1. Generate a standard wave for a specific integer frequency and integer half-life-per-second as a voltage signal.
 2. The Ideal speaker which translates a voltage signal to sound signal can be approximated.
