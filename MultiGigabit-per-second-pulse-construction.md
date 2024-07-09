@@ -1,7 +1,5 @@
 # Intro
-I'm working on this project to try and understand a contradiction in my understanding of physics and information theory.
-I'm hoping to learn something about audio engineering, linear algebra, physics, or information theory through this project.
-I'm aware the project is a little absurd. Please feel free to mention errors to me.
+Please read disclaimer in README. Please feel free to mention errors to me.
 ## My Intuition
 I was able to isolate the following intuition which I think is strange: 
 ### Waves should be analyzed in 2 dimensions: dampening and frequency.
