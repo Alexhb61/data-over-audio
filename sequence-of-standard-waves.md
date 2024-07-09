@@ -1,5 +1,5 @@
 # Intro
-Same Disclaimer as before:
+Please Read Disclaimer in README.
 I'm trying to learn why there is a contradiction in my understanding. 
 I'm hoping to learn something through this project.
 ## My Intuition
@@ -15,3 +15,6 @@ The laplace transform of the standard wave is (a * 2 * pi * f)/((s - b * (ln2) )
 3. The shannon heartly theorem predicts bandwidth in bits is proportional to bandwidth in frequencies
 # Contradiction
 O(log(n)) is eventually dominated by O(n) so a contradiction is reached.
+# Questions:
+How is bandwidth formally calculated?
+
