@@ -1,6 +1,6 @@
 # Intro
-I'm willing to believe I made a mistake or misunderstood something, but I'm trying to learn something about physics or linear algebra.
-I'm going to present the rest of the document as if it is error-free which it is up to my understanding. Please feel to mention errors to me, or in the issues of this repository.
+Please Read Disclaimer in README.
+Please feel to mention errors to me.
 
 ### My Intuition
 1. My intuition says that information can be sent through pulses other than the square pulses commonly used.
