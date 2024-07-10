@@ -12,7 +12,7 @@ I'm referring to wave of amplitude a, half-life per second b, frequency f, and d
 1. Let ```c(t)``` be a sequence of timestamped delta functions.
 2. then ```ramp(t) * c(t)``` is a signal sent with unit time square pulses.
 3. then ```(ramp(t x epsilon) x standard(1,1,1,0) ) * c(t) ``` is the same signal but sent with larger pulses which can overlap without communication failure because of the dampened sine wave but needs twice the SNR. Note epsilon depends on production details.
-4. Taking the laplace transform, we get : ( L{ramp(t x epsilon)}(s) * ( delta(s - ln2 + 2pi x i ) + delta(s - ln2 + 2pi x i) ) ) x L{c}(s)
+4. Taking the laplace transform, we get : ```( L{ramp(t x epsilon)}(s) * ( delta(s - ln2 + 2pi x i ) + delta(s - ln2 + 2pi x i) ) ) x L{c}(s)```
 5. So the frequency distribution is arbitrarily small depending on production details.
 6. So from k hz and b bitdepth we get to 2x k x epsilon hz and b+1 bitdepth.
 ## Specifics:
@@ -28,3 +28,9 @@ by closer I mean any error measure such as Sum of square ERRORS or Total Absolut
 X[t] = bit[t div k] x Encoding[t mod k ]
 Y[t] = X[t] + Y[t-w] x D
 by div I mean integer division. By mod I mean modular arithmetic ( computing the remainder in division).
+# Questions and Assumptions:
+What am I assuming here?
+I'll check back at a later point.
+## More Precision than Bandwidth
+You need to have more precision in the sending device and receiving device than "bandwidth" in the channel. That situation might be weird.
+But is important.
