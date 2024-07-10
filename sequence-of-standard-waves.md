@@ -8,13 +8,23 @@ I was able to isolate this intuition from the other piece of intuition about wav
 ## Definition of Standard Wave
 Maybe It should have its own document instead of being defined in each document, but anyway I mean a dampened cosine wave multiplied by the unit step function.
 I'm referring to wave of amplitude a, half-life per second b, frequency f, and delay d.
-# Assumptions
-The laplace transform of the standard wave is (a * 2 * pi * f)/((s - b * (ln2) )+(2 * pi * f)^2)
-1. This Function takes up more bandwidth in a logarithmic way according to frequency.
-2. If b > f , via a sequence of standard waves (one wavelength apart) one should be able to send data proportional to frequency. With less noise as b increases.
-3. The shannon heartly theorem predicts bandwidth in bits is proportional to bandwidth in frequencies
-# Contradiction
-O(log(n)) is eventually dominated by O(n) so a contradiction is reached.
-# Questions:
-How is bandwidth formally calculated?
-
+# Contradiction:
+1. Let ```c(t)``` be a sequence of timestamped delta functions.
+2. then ```ramp(t) * c(t)``` is a signal sent with unit time square pulses.
+3. then ```(ramp(t x epsilon) x standard(1,1,1,0) ) * c(t) ``` is the same signal but sent with larger pulses which can overlap without communication failure because of the dampened sine wave but needs twice the SNR. Note epsilon depends on production details.
+4. Taking the laplace transform, we get : ( L{ramp(t x epsilon)}(s) * ( delta(s - ln2 + 2pi x i ) + delta(s - ln2 + 2pi x i) ) ) x L{c}(s)
+5. So the frequency distribution is arbitrarily small depending on production details.
+6. So from k hz and b bitdepth we get to 2x k x epsilon hz and b+1 bitdepth.
+## Specifics:
+Let w be one wavelength and D is the dampening amount for one wavelength for the encoding scheme.
+Let k be the number of positions per wavelength.
+Y is the signal being sent. X is a middle step. Encoding is the dampened cosine wave for 1 wavelength.
+Bit is the sequence of bits intended to be sent.
+### Deconstruction filter
+X[t] = Y[t] - Y[t-w] x D
+bit[i] = if from X[i x k] to X[(i + 1) x k] is closer to Encoding than 0 return 1 rather than 0
+by closer I mean any error measure such as Sum of square ERRORS or Total Absolute Deviation.
+### Construction filter
+X[t] = bit[t div k] x Encoding[t mod k ]
+Y[t] = X[t] + Y[t-w] x D
+by div I mean integer division. By mod I mean modular arithmetic ( computing the remainder in division).
