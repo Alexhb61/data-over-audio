@@ -30,6 +30,7 @@ We encode our 2k bits as a vector of +/-1+/-i instead of zeros and 1s.
 6. Let r = (r_0 - i*r_1)/2
 7. Vr = b Decode the signal.
 8. If b_i > 0 assume the input at that position was 1 and likewise for less than zero and negative 1 . Similarly for the imaginary units.
+
 When the 2-norm of the noise is less than 1;
 the 2-norm of V(n_0 -i*n_1)/2 is less than 1;
 therefore the max-norm of V(n_0 -n_1)/2 is less than 1;
