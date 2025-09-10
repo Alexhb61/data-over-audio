@@ -20,8 +20,11 @@ I believe this definition roughly but not exactly matches gaussian noise model.
 We will send 2SNR bits in a burst of 1 second over both channels.
 Let k be the SNR in volts squared. Let the signal have 2-norm ```sqrt(k)```
 When the noise vector has 2-norm less than ```1```, the process will have successfully sent 2k bits.
-We will be using the leading principal k by k submatrix of the k^2 discrete fourier transform; notably, call it V
-(scale it by sqrt(k) when compared to the unitary matrix).
+```V``` is the unitary discrete fourier transform of dimension k,
+but column ```j``` of ```V^-1``` can also be viewed as the complex sinusoid of frequency ```f = j/(n-1)```
+(j ranging from 0 to n-1 inclusive)
+(T ranging from ```0/n``` to ```(n-1)/n``` inclusive )
+with ```e^(-2pi*T*F)```` being the thing being powered.
 We encode our 2k bits as a vector of +/-1+/-i instead of zeros and 1s.
 1. V^(-1)d = s #encode signal into frequencies between 0 and 1.
 2. signal_0 = s + s* ; signal_1 = i(s - s*) Now we have two real signals
