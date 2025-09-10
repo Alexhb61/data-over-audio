@@ -21,31 +21,31 @@ We will send 2SNR bits in a burst of 1 second over both channels.
 Let k be the SNR in volts squared. Let the signal have 2-norm ```sqrt(k)```
 When the noise vector has 2-norm less than ```1```, the process will have successfully sent 2k bits.
 ```V``` is the unitary discrete fourier transform of dimension k,
-but column ```j``` of ```V^-1``` can also be viewed as the complex sinusoid of frequency ```f = j/(n-1)```
+but column ```j``` of ```V``` can also be viewed as the complex sinusoid of frequency ```f = j/(n-1)```
 (j ranging from 0 to n-1 inclusive)
 (T ranging from ```0/n``` to ```(n-1)/n``` inclusive )
-with ```e^(-2pi*T*F)```` being the thing being powered.
+with ```e^(-2pi*T*F)``` being the thing being powered.
 We encode our 2k bits as a vector of +/-1+/-i instead of zeros and 1s.
-1. V^(-1)d = s #encode signal into frequencies between 0 and 1.
+1. Vd = s #encode signal into frequencies between 0 and 1.
 2. signal_0 = s + s* ; signal_1 = i(s - s*) Now we have two real signals
 3. Shift signal_i to the appropriate frequency to be going through the filter: message_i
 4. m_i = F(message_i)+ n_i
 5. Shift m_i back to the frequencies between 0 and 1  r_i
 6. Let r = (r_0 - i*r_1)/2
-7. Vr = b Decode the signal.
+7. V^(-1)r = b Decode the signal.
 8. If b_i > 0 assume the input at that position was 1 and likewise for less than zero and negative 1 . Similarly for the imaginary units.
 
 When the 2-norm of the noise is less than 1;
-the 2-norm of V(n_0 -i*n_1)/2 is less than 1;
-therefore the max-norm of V(n_0 -n_1)/2 is less than 1;
+the 2-norm of V^(-1)(n_0 -i*n_1)/2 is less than 1;
+therefore the max-norm of V^(-1)(n_0 -n_1)/2 is less than 1;
 therefore, no +1 in the input can be turned into a -1 in the output.
-The ideal filter should have no effect because (VFV^-1)^T = V^-TFV^T = V^-TV^T = I .
+The ideal filter should have no effect because (V^-1FV) = I .
 
 # Concerns:
 The construction uses two channels.
 Maybe it could have used 2 seconds?
 The construction adds noise after the filter not before.
-Are they distinctly different?
+Does that choice effect things?
 
 # Conclusion:
 I have presented a rough argument that ```B*lg(1+SNR)``` can be exceeded.
