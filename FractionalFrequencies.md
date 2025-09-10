@@ -1,10 +1,11 @@
 # Introduction
 This note attempts to articulate my confusion with fractional frequencies.
+ERROR found
 # Question:
 For any epsilon > 0, Given an Ideal 1+epsilon Hz bandpass filter with linear phase response and Finite Impulse Response, 
 What is the maximum amount of data that can be put through two channels for a given Signal to Noise Ratio in voltz squared?
 # Standard answer:
-According to the shannon-hartley theorem, the answer should be AT MOST log_2(1+ SNR) bits per second, because the bandwidth is 1.
+According to the shannon-hartley theorem, the answer should be AT MOST 2*log_2(1+ SNR) bits per second, because the bandwidth is 1.
 # My current answer:
 At least 2SNR bits per second, proof:
 We will model the channel as an affine function: ```F(s)+ n = m ```.
@@ -22,6 +23,7 @@ Let k be the SNR in volts squared. Let the signal have 2-norm ```sqrt(k)```
 When the noise vector has 2-norm less than ```1```, the process will have successfully sent 2k bits.
 ```V``` is the unitary discrete fourier transform of dimension k,
 but column ```j``` of ```V``` can also be viewed as the complex sinusoid of frequency ```f = j/(n-1)```
+ERROR
 (j ranging from 0 to n-1 inclusive)
 (T ranging from ```0/n``` to ```(n-1)/n``` inclusive )
 with ```e^(-2pi*T*F)``` being the thing being powered.
