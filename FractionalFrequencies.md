@@ -1,6 +1,8 @@
 # Introduction
 This note attempts to articulate my confusion with fractional frequencies.
 ERROR found
+I lost track of the norm a certain matrix, and then made a number theory error when fixing it.
+
 # Question:
 For any epsilon > 0, Given an Ideal 1+epsilon Hz bandpass filter with linear phase response and Finite Impulse Response, 
 What is the maximum amount of data that can be put through two channels for a given Signal to Noise Ratio in voltz squared?
